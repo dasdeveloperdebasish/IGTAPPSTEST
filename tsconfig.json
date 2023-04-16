@@ -1,0 +1,27 @@
+// prettier-ignore
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",    
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@navigation/*": ["./src/navigation/*"],
+      "@typings/*": ["./src/typings/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@helper/*": ["./src/helper/*"], 
+      "@hooks/*": ["./src/hooks/*"],
+      "@redux/*": ["./src/redux/*"],
+      "@store/*": ["./src/store/*"],
+      "@rootReducer/*": ["./src/rootReducer/*"],
+      "@config/*": ["./src/config/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@services/*": ["./src/services/*"],
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist",
+  ]
+}
