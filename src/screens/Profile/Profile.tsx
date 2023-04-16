@@ -4,13 +4,14 @@ import auth from '@react-native-firebase/auth';
 import CustomHeader from '@components/CustomHeader/CustomHeader';
 import {horizontalScale, moderateScale, verticalScale} from '@utils/metric';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {useNavigation} from '@react-navigation/native';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export default function Authenticated() {
   const [isGoogleSignIn, setIsGoogleSignIn] = useState(false);
   const user = auth().currentUser;
 
-  const {navigate} = useNavigation();
+  const {replace} = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   const isSignedIn = async () => {
     const isSignedIn = await GoogleSignin.isSignedIn();
@@ -25,7 +26,7 @@ export default function Authenticated() {
     isGoogleSignIn && (await GoogleSignin.signOut());
 
     auth().signOut();
-    navigate('Login' as never);
+    replace('Login' as never);
   };
 
   return (
@@ -49,6 +50,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#fff',
   },
   title: {
     color: '#fb5b5a',

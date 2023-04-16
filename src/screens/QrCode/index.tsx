@@ -1,3 +1,4 @@
+import CustomHeader from '@components/CustomHeader/CustomHeader';
 import {horizontalScale, moderateScale, verticalScale} from '@utils/metric';
 import React, {useRef, useState} from 'react';
 
@@ -18,6 +19,7 @@ const QrCode = () => {
 
   return (
     <SafeAreaView style={{flex: 1}}>
+      <CustomHeader title="QR Code" />
       <View style={styles.container}>
         <Text style={styles.titleStyle}>
           Generation of QR Code in React Native
